@@ -1,6 +1,7 @@
 // Saber o tamanho da Tela que o jogo será exibido
 var altura = 0
 var largura = 0
+var vidas = 1
 
 function ajustaTamanhoPalcoJogo(){
 
@@ -18,9 +19,18 @@ function posicaoRandomica() {
     //Remover o Mosquito Anterior (CASO EXISTA)
     if(document.getElementById('mosquito')){
 
-    document.getElementById('mosquito').remove()
+        document.getElementById('mosquito').remove()
+
+        if(vidas > 3) {
+
+            window.location.href = 'fim_de_jogo.html'
+        } else {
+        document.getElementById('v' + vidas).src = "imagens/coracao_vazio.png"
+
+        vidas++
+        }
     }
-    
+
     // Gerando posições aleatórias para o mosquito
     var posicaoX = Math.floor(Math.random() * largura) - 90
     var posicaoY = Math.floor(Math.random() * altura) - 90
@@ -39,10 +49,11 @@ function posicaoRandomica() {
     mosquito.style.top = posicaoY + 'px'
     mosquito.style.position = 'absolute'
     mosquito.id =  'mosquito'
+    mosquito.onclick = function() {
+        this.remove()
+    }
 
     document.body.appendChild(mosquito)
-
-    ladoAleatorio()
 
 }
 
