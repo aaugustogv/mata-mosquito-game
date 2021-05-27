@@ -23,8 +23,8 @@ var cronometro = setInterval(function() {
         clearInterval(cronometro)
 
         clearInterval(criaMosca)
-        
-        alert('oie')
+
+        window.location.href = 'vitoria.html'
     } else {
     document.getElementById('cronometro').innerHTML = tempo
     }
