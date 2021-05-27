@@ -1,4 +1,4 @@
-// Saber o tamanho da Tela que o jogo será exibido
+
 var altura = 0
 var largura = 0
 var vidas = 1
@@ -6,7 +6,7 @@ var tempo = 7
 
 var criaMosquitoTempo = 1500
 
-//Logica para seleção do nivel
+
 var nivel = window.location.search
 nivel = nivel.replace('?', '')
 
@@ -31,7 +31,7 @@ console.log(largura, altura)
 
 ajustaTamanhoPalcoJogo()
 
-//Lógica do cronometro
+
 
 var cronometro = setInterval(function() {
     tempo -= 1
@@ -50,7 +50,6 @@ var cronometro = setInterval(function() {
 
 function posicaoRandomica() {
 
-    //Remover o Mosquito Anterior (CASO EXISTA)
     if(document.getElementById('mosquito')){
 
         document.getElementById('mosquito').remove()
@@ -64,7 +63,6 @@ function posicaoRandomica() {
         }
     }
 
-    // Gerando posições aleatórias para o mosquito
     var posicaoX = Math.floor(Math.random() * largura) - 90
     var posicaoY = Math.floor(Math.random() * altura) - 90
 
@@ -72,8 +70,6 @@ function posicaoRandomica() {
     posicaoY = posicaoY < 0 ? 0 : posicaoY
 
     console.log(posicaoX, posicaoY)
-
-    // Criar o Elemento HTML
 
     var mosquito = document.createElement('img')
     mosquito.src = 'imagens/mosca.png'
@@ -90,8 +86,6 @@ function posicaoRandomica() {
 
 }
 
-// Lógica para o tamanho aleátorio 
-
 function tamanhoAleatorio() {
     var classe = Math.floor(Math.random() * 3)
 
@@ -105,8 +99,6 @@ function tamanhoAleatorio() {
             return 'mosquito3'
     }
 }
-
-// Lógica para lado Aleatório
 
 function ladoAleatorio() {
     var classe = Math.floor(Math.random() * 2)
